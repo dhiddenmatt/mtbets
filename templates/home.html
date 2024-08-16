@@ -1,0 +1,37 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    
+<!-- Menu -->
+    <a href="{% url 'academia' %}">Academia</a>
+    <!-- Cuelgan de academia: -->
+    <a href="{% url 'academiaMB' %}">Formación Matched</a>
+    <a href="{% url 'academiaSB' %}">Formación Sure</a>
+
+    <a href="{% url 'servicios' %}">Servicios</a>
+      <!-- Cuelgan de servicios: -->
+    <a href="{% url 'serviciosMB' %}">Servicio Matched</a>
+    <a href="{% url 'serviciosSB' %}">Servicio Sure</a>
+
+    <a href="{% url 'login' %}">Log in</a>
+    <a href="{% url 'registro' %}">Registro</a>
+     <!-- A la página registro se accede también cuando se quiere realizar una compra, por lo que aunque haya un botón de registro 
+       en el menu, se puede acceder a través de un botón de compra a cualquier producto ej: https://www.mtbets/registro/matched-anual/ 
+       Por lo que al añadir muchas ofertas dentro de la home u otra página se van a generar distintas URL que cuelguen de registro. 
+       Nota: el registro desde registro es para registrarse gratis, no tiene ningún producto ni servicio pero tiene acceso a un contenido
+       gratuito y nosotros tenemos su email. Por lo que no siempre que se registra es para pagar y no siempre que se paga se necesita 
+       un registro (ya que ya está hecho)-->
+   <!-- A esto se le añaden páginas como Politica de privacidad, Politica de cookies, botones de contacto... en el bottom -->
+
+
+</body>
+</html>

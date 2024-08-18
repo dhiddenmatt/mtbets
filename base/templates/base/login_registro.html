@@ -1,0 +1,51 @@
+
+{% if request.user.is_authenticated %}
+
+    <a href="{% url 'area_personal' %}"></a>
+
+{% else %}
+
+    {% if page == 'login' %}
+
+        <div>
+            <form method="POST" action="">
+                {% csrf_token %}
+                <label>Username:</label>
+                <input type="text" name="username" placeholder="Enter Username">
+
+                <label>Password:</label>
+                <input type="password" name="password" placeholder="Enter Password">
+
+                <input type="submit" value="Login">
+            </form>
+
+            
+            <a href="{% url 'registro' %}">Crear una cuenta</a>
+        </div>
+
+    {% elif page == 'register' %}
+
+        <div>
+            <form method="POST" action="">
+                {% csrf_token %}
+
+                {{form.as_p}}
+
+                <input type="submit" value="Register">
+            </form>
+
+            
+            <a href="{% url 'login' %}">Iniciar Sesión</a>
+        </div>
+
+    {% endif %}
+
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+{% endif %}

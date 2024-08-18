@@ -22,8 +22,23 @@
     <a href="{% url 'serviciosMB' %}">Servicio Matched</a>
     <a href="{% url 'serviciosSB' %}">Servicio Sure</a>
 
-    <a href="{% url 'login' %}">Log in</a>
-    <a href="{% url 'registro' %}">Registro</a>
+
+    {% if userInfo.is_authenticated %}
+
+      <!-- Si el usuario está registrado -->
+    
+      <a href="{% url 'logout' %}">Log out</a>
+
+      <h3>Hola {{userInfo.username}}!</h3>
+    
+    {% else %}
+
+      <!-- Si el usuario NO está registrado -->
+
+      <a href="{% url 'login' %}">Log in</a>
+      <a href="{% url 'registro' %}">Registro</a>
+
+    {% endif %}
      <!-- A la página registro se accede también cuando se quiere realizar una compra, por lo que aunque haya un botón de registro 
        en el menu, se puede acceder a través de un botón de compra a cualquier producto ej: https://www.mtbets/registro/matched-anual/ 
        Por lo que al añadir muchas ofertas dentro de la home u otra página se van a generar distintas URL que cuelguen de registro. 

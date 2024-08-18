@@ -1,13 +1,13 @@
-from django.urls import path, include
+from django.urls import path
 from . import views
 
 # mtbets/
 
 
 urlpatterns = [
-    path(""                             , views.prueba          , name='prueba'),
+    path(""                             , views.home            , name='home'),
 
-    path("area-personal/"               , views.areaPersonal    , name='area personal'),
+    path("area-personal/"               , views.areaPersonal    , name='area_personal'),
 
     path("academia/"                    , views.academia        , name='academia'),
     path("academia/matchedbetting/"     , views.academiaMB      , name='academiaMB'),
@@ -17,7 +17,7 @@ urlpatterns = [
     path("servicios/matchedbetting/"    , views.serviciosMB     , name='serviciosMB'),
     path("servicios/surebetting/"       , views.serviciosSB     , name='serviciosSB'),
 
-    path("login/"                       , views.login           , name='login'),
-    path("registro/"                    , views.register        , name='registro'),
-    
+    path("login/"                       , views.loginPage       , name='login'),
+    path("registro/"                    , views.registerPage    , name='registro'),
+    path("logout/"                      , views.logoutUser      , name='logout'),
 ]
